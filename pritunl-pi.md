@@ -1,5 +1,7 @@
 # Getting Pritunl installed on Raspbian stretch
 
+I wanted to install Pritunl on my Raspberry Pi. The Pritunl repos do not support the Raspberry Pi architecture, so it needs to be compiled from source. Below is the command that I ran (in a tidied form) on Raspbian in order to get Pritunl installed on my Pi.
+
 Adapted from https://github.com/pritunl/pritunl
 ```
 export VERSION=X.XX.XX.XX # Set current pritunl version here
