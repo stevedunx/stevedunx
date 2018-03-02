@@ -44,6 +44,8 @@ sudo systemctl start pritunl
 ```
 The last hurdle now is to get an up-to-date MongoDB on the Pi. https://raspberrypi.stackexchange.com/a/67996
 
+I shall probably use Docker https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/
+
 Sources:
 * `sudo -E` https://stackoverflow.com/questions/19854835/gopath-environment-variable-not-set#comment76476872_19864442
 * Install `libffi-dev` https://stackoverflow.com/a/31508663
