@@ -35,7 +35,7 @@ sudo systemctl enable mongodb pritunl
 ```
 
 You can check pritunl runs with `sudo pritunl start`.
-For the service logs, use `sudo pritunl logs`.
+For the service logs, use `sudo pritunl logs` or `sudo service pritunl status`
 
 Sources:
 * `sudo -E` https://stackoverflow.com/questions/19854835/gopath-environment-variable-not-set#comment76476872_19864442
