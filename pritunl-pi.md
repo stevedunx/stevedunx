@@ -3,6 +3,9 @@
 I wanted to install Pritunl on my Raspberry Pi. The Pritunl repos do not support the Raspberry Pi architecture, so it needs to be compiled from source. Below is the command that I ran (in a tidied form) on Raspbian in order to get Pritunl installed on my Pi.
 
 Adapted from https://github.com/pritunl/pritunl
+
+My `pip --version` is `pip 9.0.1 from /usr/lib/python2.7/dist-packages (python 2.7)`, so I've used python 2.7 in the commands below.
+
 ```
 export VERSION=X.XX.XX.XX # Set current pritunl version here
 
@@ -21,9 +24,9 @@ sudo ln -s /go/bin/pritunl-web /usr/local/bin/pritunl-web
 wget https://github.com/pritunl/pritunl/archive/$VERSION.tar.gz
 tar xf $VERSION.tar.gz
 cd pritunl-$VERSION
-python2 setup.py build
-pip install -r requirements.txt
-sudo python2 setup.py install
+python2.7 setup.py build
+sudo pip install -r requirements.txt # if you run this without sudo, it will pip install for the local user
+sudo python2.7 setup.py install
 
 sudo systemctl daemon-reload
 sudo systemctl start mongodb pritunl
