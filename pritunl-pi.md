@@ -26,6 +26,7 @@ tar xf $VERSION.tar.gz
 cd pritunl-$VERSION
 python2.7 setup.py build
 sudo pip install -r requirements.txt # if you run this without sudo, it will pip install for the local user
+sudo pip install --upgrade google-auth-oauthlib  # see https://stackoverflow.com/a/47602779
 sudo python2.7 setup.py install
 
 sudo systemctl daemon-reload
