@@ -8,10 +8,12 @@ Adapted from https://github.com/pritunl/pritunl
 
 My `pip --version` is `pip 9.0.1 from /usr/lib/python2.7/dist-packages (python 2.7)`, so I've used python 2.7 in the commands below.
 
+Note that pritunl requires Mongo DB 2.6+, but the latest in Raspbian repos is 2.4.
+
 ```
 export VERSION=X.XX.XX.XX # Set current pritunl version here
 
-sudo apt-get install libffi-dev libssl-dev mongodb-server
+sudo apt-get install libffi-dev libssl-dev
 sudo apt-get install golang git bzr python-dev python-pip net-tools openvpn bridge-utils psmisc
 
 echo "export GOPATH=/go" >> ~/.bash_profile
@@ -31,8 +33,8 @@ sudo pip install --upgrade google-auth-oauthlib
 sudo python2.7 setup.py install
 
 sudo systemctl daemon-reload
-sudo systemctl start mongodb pritunl
-sudo systemctl enable mongodb pritunl
+sudo systemctl start pritunl
+sudo systemctl enable pritunl
 ```
 
 You can check pritunl runs with `sudo pritunl start`. For the service logs, use `sudo pritunl logs` or `sudo service pritunl status`.
@@ -46,11 +48,14 @@ sudo systemctl start pritunl
 
 ## Mongo DB
 
-The last hurdle now is to get an up-to-date MongoDB on the Pi. https://raspberrypi.stackexchange.com/a/67996
+The last hurdle now is to get an up-to-date MongoDB on the Pi. Note that pritunl requires Mongo DB 2.6+, but the latest in Raspbian repos is 2.4. 
 
-I shall probably use Docker https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/
+I shall probably use Docker 
 
 ```
+# Get docker
+curl -sSL https://get.docker.com | sh
+# Get a precompiled mongo image into docker
 sudo docker pull dhermanns/rpi-mongo
 ```
 
@@ -60,4 +65,6 @@ sudo docker pull dhermanns/rpi-mongo
 * Install `libssl-dev` https://github.com/certbot/certbot/issues/37#issuecomment-64003137
 * `upgrade google-auth-oauthlib` because `from pyasn1.type import opentype` fails https://stackoverflow.com/a/47602779
 * `go get -u -v` because it looks like it's doing nothing https://github.com/golang/go/issues/17959
-
+* Options for MongoDB on the Pi https://raspberrypi.stackexchange.com/a/67996
+* Get docker https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/
+* MongoDB RPi Docker image https://github.com/dhermanns/rpi-mongo
