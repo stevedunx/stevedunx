@@ -1,5 +1,7 @@
 # Getting Pritunl installed on Raspbian stretch
 
+## Pritunl
+
 I wanted to install Pritunl on my Raspberry Pi. The Pritunl repos do not support the Raspberry Pi architecture, so it needs to be compiled from source. Below is the command that I ran (in a tidied form) on Raspbian in order to get Pritunl installed on my Pi.
 
 Adapted from https://github.com/pritunl/pritunl
@@ -31,7 +33,6 @@ sudo python2.7 setup.py install
 sudo systemctl daemon-reload
 sudo systemctl start mongodb pritunl
 sudo systemctl enable mongodb pritunl
-
 ```
 
 You can check pritunl runs with `sudo pritunl start`. For the service logs, use `sudo pritunl logs` or `sudo service pritunl status`.
@@ -42,11 +43,18 @@ When I ran `sudo service pritunl status`, I found `pritunl.service: Failed at st
 sudo systemctl daemon-reload
 sudo systemctl start pritunl
 ```
+
+## Mongo DB
+
 The last hurdle now is to get an up-to-date MongoDB on the Pi. https://raspberrypi.stackexchange.com/a/67996
 
 I shall probably use Docker https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/
 
-Sources:
+```
+sudo docker pull dhermanns/rpi-mongo
+```
+
+# Sources:
 * `sudo -E` https://stackoverflow.com/questions/19854835/gopath-environment-variable-not-set#comment76476872_19864442
 * Install `libffi-dev` https://stackoverflow.com/a/31508663
 * Install `libssl-dev` https://github.com/certbot/certbot/issues/37#issuecomment-64003137
