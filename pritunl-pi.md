@@ -60,8 +60,7 @@ sudo docker pull dhermanns/rpi-mongo
 # See that it is installed
 sudo docker images
 sudo docker run dhermanns/rpi-mongo
-curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
-sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+sudo curl -L https://github.com/docker/machine/releases/download/v0.14.0-rc1/docker-machine-Linux-armhf > /tmp/docker-machine && chmod +x /tmp/docker-machine && sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 ```
 
 # Sources:
