@@ -59,8 +59,7 @@ curl -sSL https://get.docker.com | sh
 sudo docker pull dhermanns/rpi-mongo
 # See that it is installed
 sudo docker images
-sudo docker run -i -t dhermanns/rpi-mongo /bin/bash
-exit
+sudo docker run dhermanns/rpi-mongo
 curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 ```
