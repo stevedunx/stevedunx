@@ -57,6 +57,12 @@ I shall probably use Docker
 curl -sSL https://get.docker.com | sh
 # Get a precompiled mongo image into docker
 sudo docker pull dhermanns/rpi-mongo
+# See that it is installed
+sudo docker images
+sudo docker run -i -t dhermanns/rpi-mongo /bin/bash
+exit
+curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
+sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 ```
 
 # Sources:
@@ -68,3 +74,4 @@ sudo docker pull dhermanns/rpi-mongo
 * Options for MongoDB on the Pi https://raspberrypi.stackexchange.com/a/67996
 * Get docker https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/
 * MongoDB RPi Docker image https://github.com/dhermanns/rpi-mongo
+* Running Docker images http://www.servermom.org/pull-docker-images-run-docker-containers/
