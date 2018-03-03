@@ -48,20 +48,7 @@ sudo systemctl start pritunl
 
 ## Mongo DB
 
-The last hurdle now is to get an up-to-date MongoDB on the Pi. Note that pritunl requires Mongo DB 2.6+, but the latest in Raspbian repos is 2.4. 
-
-I shall probably use Docker 
-
-```
-# Get docker
-curl -sSL https://get.docker.com | sh
-# Get a precompiled mongo image into docker
-sudo docker pull dhermanns/rpi-mongo
-# See that it is installed
-sudo docker images
-sudo docker run dhermanns/rpi-mongo
-sudo curl -L https://github.com/docker/machine/releases/download/v0.14.0-rc1/docker-machine-Linux-armhf > /tmp/docker-machine && chmod +x /tmp/docker-machine && sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
-```
+Because Mongo DB seems rather tricky to get working, I've used a third-party provider, which probably isn't the best idea.
 
 # Sources:
 * `sudo -E` https://stackoverflow.com/questions/19854835/gopath-environment-variable-not-set#comment76476872_19864442
