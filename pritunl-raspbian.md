@@ -13,6 +13,7 @@ Note that pritunl requires Mongo DB 2.6+, but the latest in Raspbian repos is 2.
 ```
 export VERSION=X.XX.XX.XX # Set current pritunl version here
 
+sudo apt-get update
 sudo apt-get install libffi-dev libssl-dev
 sudo apt-get install golang git bzr python-dev python-pip net-tools openvpn bridge-utils psmisc
 
